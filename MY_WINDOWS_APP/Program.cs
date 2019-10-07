@@ -23,7 +23,7 @@
 					startupForm.Dispose();
 				}
 
-				startupForm = null;
+				//startupForm = null;
 			}
 		}
 	}

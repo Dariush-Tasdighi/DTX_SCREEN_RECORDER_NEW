@@ -41,6 +41,8 @@
 		{
 			ScreenScalingFactor =
 				GetScreenScalingFactor();
+
+			stopButton.Enabled = false;
 		}
 
 		private void InitializeScreenCaptureJob()
@@ -226,15 +228,21 @@
 			System.Windows.Forms.MessageBox.Show(e.ErrorCode.ToString());
 		}
 
-		private void Button1_Click(object sender, System.EventArgs e)
+		private void StartButton_Click(object sender, System.EventArgs e)
 		{
+			stopButton.Enabled = true;
+			startButton.Enabled = false;
+
 			InitializeScreenCaptureJob();
 
 			ScreenCaptureJob.Start();
 		}
 
-		private void Button2_Click(object sender, System.EventArgs e)
+		private void StopButton_Click(object sender, System.EventArgs e)
 		{
+			stopButton.Enabled = false;
+			startButton.Enabled = true;
+
 			ScreenCaptureJob.Stop();
 
 			ScreenCaptureJob.Dispose();
